@@ -23,6 +23,8 @@ public class ClientHandler implements Runnable {
     @Override
     public void run() {
         String message = "";
+        String nickname = "";
+        String welcomeMessege = "";
 
         while (true) {
 
@@ -45,4 +47,11 @@ public class ClientHandler implements Runnable {
         out.flush();
 
     }
+
+    public byte[] getNickname (String nickname) throws IOException {
+        out.write(nickname.getBytes());
+        out.write("\n".getBytes());
+        out.flush();
+    }
+
 }

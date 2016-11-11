@@ -12,12 +12,13 @@ import java.net.Socket;
 public class ReadThread implements Runnable {
 
     Socket socket;
+    BufferedReader in;
 
-    public ReadThread(Socket socket) {
+    public ReadThread(Socket socket) throws IOException {
         this.socket = socket;
+        in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
     }
 
-    BufferedReader in;
 
     @Override
     public void run() {
@@ -26,7 +27,6 @@ public class ReadThread implements Runnable {
 
         while (socket.isBound()) {
             try {
-                in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 message = in.readLine();
                 System.out.println(message);
 

@@ -9,8 +9,8 @@ import java.util.Scanner;
  */
 public class Client {
 
-    private int portNumber = 4000;
-    private String hostName = "localHost";
+    private int portNumber;
+    private String hostName;
     private Scanner keyboardInput;
     private String message;
     Socket clientSocket;
@@ -18,7 +18,7 @@ public class Client {
     BufferedReader in;
     DataOutputStream out;
 
-    public Client(int portNumber, String hostName) throws IOException {
+    public Client(String hostName, int portNumber) throws IOException {
         this.portNumber = portNumber;
         this.hostName = hostName;
         keyboardInput = new Scanner(System.in);
@@ -41,5 +41,3 @@ public class Client {
         }
     }
 }
-
-
