@@ -8,7 +8,7 @@ import java.io.IOException;
 public class MainClient {
     public static void main(String[] args) throws IOException {
 
-        Client myClient = new Client(5000, "localhost");
+        Client myClient = new Client(8080, "192.168.1.15");
         myClient.start();
 
     }

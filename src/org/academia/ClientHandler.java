@@ -26,15 +26,16 @@ public class ClientHandler implements Runnable {
 
         while (true) {
 
-
             try {
                 in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 out = new DataOutputStream(socket.getOutputStream());
+
                 message = in.readLine();
+                server.sendAll(message);
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            System.out.println(message);
         }
     }
 
